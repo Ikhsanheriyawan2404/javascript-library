@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expression</title>
+</head>
+<body>
+    <script>
+
+    {
+        // Create Regex
+        const regex1 = /eko/;
+        const regex2 = new RegExp("eko");
+        const regex3 = new RegExp(/eko/);
+    }
+    {
+        // Test Regex
+        const name = "Ikhsan Heriyawan Ikhsan Hiruma";
+        const regex = /Ikhsan/;
+
+        const result = regex.exec(name);
+        console.log(result);
+        console.log(regex.exec("tidak ada"));
+
+        const test = regex.test(name);
+        console.log(test);
+        console.log(regex.test("tidak ada"));
+
+    }
+    {
+        // Regex Modifier
+        const name = "eko kurniawan\nEko khannedy\nEdo Kurniawan";
+        const regex1 = /^e.o/igm;
+        const regex2 = /Kurniawan/ig;
+
+        let result;
+        while ((result = regex1.exec(name)) !== null) {
+            console.log(result);
+        }
+
+        while ((result = regex2.exec(name)) !== null) {
+            console.log(result);
+        }
+    }
+    {
+        // Advanced Regex
+        const regex = /ek[aiueo]/ig;
+        
+        const name = "eka eki eku iku eke aki eko";
+        let result;
+        while ((result = regex.exec(name)) !== null) {
+            console.log(result);
+        }
+
+    }
+    {
+        const name = "eka eki eku iku eke aki eko";
+
+        console.info(name.match(/ek[aiueo]/ig));
+        console.info(name.search(/ek[aiueo]/ig));
+        console.info(name.replace(/ek[aiueo]/i, "you"));
+        console.info(name.replaceAll(/ek[aiueo]/ig, "you"));
+        console.info(name.split(/e/ig));
+
+    }
+
+    </script>
+</body>
+</html>
